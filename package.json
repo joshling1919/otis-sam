@@ -1,0 +1,12 @@
+{
+  "name": "otis-sam",
+  "version": "1.0.0",
+  "description": "This is a sample template for sam-app - Below is a brief explanation of what we have generated for you:",
+  "main": "index.js",
+  "scripts": {
+    "package": "sam package --template-file template.yaml --s3-bucket groupme-otis --output-template-file packaged.yaml",
+    "deploy": "sam deploy --template-file ./packaged.yaml --stack-name groupme-otis --capabilities CAPABILITY_IAM"
+  },
+  "author": "",
+  "license": "ISC"
+}
