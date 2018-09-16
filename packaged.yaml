@@ -38,7 +38,8 @@ Resources:
       CodeUri: s3://groupme-otis/702d2ef7f93966e26aac3bb8827cf8b4
       Environment:
         Variables:
-          PARAM1: VALUE
+          GOCHU_BROS_MESSAGES: ''
+          OTIS_MONGO: ''
       Events:
         Migrate:
           Properties:
