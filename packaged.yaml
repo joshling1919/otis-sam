@@ -33,9 +33,9 @@ Resources:
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
     Type: AWS::Serverless::Function
-  MigrateFunction:
+  StoreMessageFunction:
     Properties:
-      CodeUri: s3://groupme-otis/702d2ef7f93966e26aac3bb8827cf8b4
+      CodeUri: s3://groupme-otis/3c63656060a8256c70a8e763b2bd2f98
       Environment:
         Variables:
           GOCHU_BROS_MESSAGES: ''
@@ -43,10 +43,10 @@ Resources:
       Events:
         Migrate:
           Properties:
-            Method: get
-            Path: /migrate
+            Method: post
+            Path: /store
           Type: Api
-      Handler: migrate.lambdaHandler
+      Handler: storeMessage.lambdaHandler
       Runtime: nodejs8.10
     Type: AWS::Serverless::Function
 Transform: AWS::Serverless-2016-10-31

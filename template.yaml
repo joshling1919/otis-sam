@@ -4,7 +4,7 @@ Description: SAM app for GroupMe On This Day Bot
 
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 30
 
 Resources:
   HelloWorldFunction:
@@ -19,11 +19,11 @@ Resources:
           Properties:
             Path: /hello
             Method: get
-  MigrateFunction:
+  StoreMessageFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: functions/migrate_messages/
-      Handler: migrate.lambdaHandler
+      CodeUri: functions/store_message/
+      Handler: storeMessage.lambdaHandler
       Runtime: nodejs8.10
       Environment: # More info about Env Vars: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
         Variables:
@@ -33,8 +33,8 @@ Resources:
         Migrate:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /migrate
-            Method: get
+            Path: /store
+            Method: post
 
 Outputs:
   HelloWorldApi:
